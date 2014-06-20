@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*
+ * Copyright 2001-2004 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+<project>
+	<name>tcpmon</name>
+	<pomVersion>3</pomVersion>
+	<!-- a unique name for this project -->
+	<name>Apache TCPMon</name>
+	<id>tcpmon</id>
+	<groupId>ws-commons</groupId>
+	<package>org.apache.ws.commons.tcpmon</package>
+	<currentVersion>${tcpmon.version}</currentVersion>
+	<!-- details about the organization that 'owns' the project -->
+	<organization>
+		<name>Apache Software Foundation</name>
+		<url>http://www.apache.org/</url>
+		<logo>http://www.apache.org/images/asf-logo.gif</logo>
+	</organization>
+	<inceptionYear>2006</inceptionYear>
+	<logo/>
+	<description>TCPMon is a utility that allows the messages to be viewed and resent. It is very much useful
+	as a debug tool. It has originally being part of Axis1 and now stands as an independent project.</description>
+	<shortDescription>TCPMon</shortDescription>
+	<!-- the project home page -->
+	<url>http://ws.apache.org/commons/tcpmon</url>
+	<issueTrackingUrl>http://issues.apache.org/jira/browse/WS-Commons</issueTrackingUrl>
+	<siteAddress>ws.apache.org/commons/tcpmon</siteAddress>
+	<siteDirectory>/www/ws.apache.org/commons/tcpmon/</siteDirectory>
+	<distributionDirectory>/www/ws.apache.org/builds/</distributionDirectory>
+	<!-- ========== -->
+	<!-- Developers -->
+	<!-- ========== -->
+	<developers>
+		<developer>
+			<name>Davanum Srinivas</name>
+			<id>dims</id>
+			<email>dims AT wso2.com</email>
+			<organization>WSO2</organization>
+		</developer>
+		<developer>
+			<name>Sanjiva Weerawarana</name>
+			<id>sanjiva</id>
+			<email>sanjiva AT wso2.com</email>
+			<organization>WSO2</organization>
+		</developer>
+		<developer>
+			<name>Glen Daniels</name>
+			<id>gdaniels</id>
+			<email>gdaniels AT apache.org</email>
+			<organization>Sonic Software</organization>
+		</developer>
+		<developer>
+			<name>Aleksander Slominski</name>
+			<id>alek</id>
+			<email>aslom AT cs.indiana.edu</email>
+			<organization>Indiana University Extreme! Computing Lab</organization>
+		</developer>
+		<developer>
+			<name>Srinath Perera</name>
+			<id>hemapani</id>
+			<email>hemapani AT apache.org</email>
+			<organization>Lanka Software Foundation</organization>
+			<url>http://www.apache.org/~hemapani</url>
+		</developer>
+		<developer>
+			<name>Eran Chinthaka</name>
+			<id>chinthaka</id>
+			<email>chinthaka AT wso2.com</email>
+			<organization>WSO2</organization>
+			<url>http://www.apache.org/~chinthaka</url>
+		</developer>
+		<developer>
+			<name>Dasarath Weerathunga</name>
+			<id>dasarath</id>
+			<email>dasarath AT opensource.lk</email>
+			<organization>Lanka Software Foundation</organization>
+		</developer>
+		<developer>
+			<name>Jaliya Ekanayake</name>
+			<id>jaliya</id>
+			<email>jaliya AT opensource.lk</email>
+			<organization>Virtusa / Lanka Software Foundation</organization>
+			<url>http://www.apache.org/~jaliya</url>
+		</developer>
+		<developer>
+			<name>Chathura Herath</name>
+			<id>chathura</id>
+			<email>chathura AT opensource.lk</email>
+			<organization>LSF/MIT</organization>
+			<url>www.apache.org/~chathura</url>
+		</developer>
+		<developer>
+			<name>Deepal Jayasinghe</name>
+			<id>deepal</id>
+			<email>deepal AT wso2.com</email>
+			<organization>WSO2</organization>
+			<url>http://www.apache.org/~deepal</url>
+		</developer>
+		<developer>
+			<name>Ajith Ranabahu</name>
+			<id>ajith</id>
+			<email>ajith AT wso2.com</email>
+			<organization>WSO2</organization>
+			<url>http://www.apache.org/~ajith</url>
+		</developer>
+		<developer>
+			<name>Venkat Reddy</name>
+			<id>venkat</id>
+			<email>vreddyp AT gmail.com</email>
+			<organization>Computer Associates</organization>
+		</developer>
+		<developer>
+			<name>Ashutosh Shahi</name>
+			<id>ashu</id>
+			<email>Ashutosh.Shahi AT ca.com</email>
+			<organization>Computer Associates</organization>
+		</developer>
+		<developer>
+			<name>Jayachandra Sekhara Rao Sunkara</name>
+			<id>jaya</id>
+			<email>jayachandra AT gmail.com</email>
+			<organization>Computer Associates</organization>
+		</developer>
+		<developer>
+			<name>Thilina Gunarathne</name>
+			<id>thilina</id>
+			<email>thilina AT opensource.lk</email>
+			<organization>Lanka Software Foundation</organization>
+		</developer>
+		<developer>
+			<name>Ruchith Fernando</name>
+			<id>ruchith</id>
+			<email>ruchith AT wso2.com</email>
+			<organization>WSO2</organization>
+		</developer>
+		<developer>
+			<name>Saminda Abeyruwan</name>
+			<id>saminda</id>
+			<email>saminda AT wso2.com</email>
+			<organization>WSO2</organization>
+		</developer>
+		<developer>
+			<name>Chamil Thanthrimudalige</name>
+			<id>chamil</id>
+			<email>chamil AT wso2.com</email>
+			<organization>WSO2</organization>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>Chatra Nakkawita</name>
+			<email>chatra AT WSO2.com</email>
+			<organization>WSO2</organization>
+		</contributor>
+	</contributors>
+	<build>
+		<nagEmailAddress>commons-dev@ws.apache.org</nagEmailAddress>
+		<sourceDirectory>src</sourceDirectory>
+	</build>
+ <!-- maven site fails if this dummy report is not there -->
+    <reports>
+		<report>maven-junit-report-plugin</report>
+    </reports>
+      
+</project>

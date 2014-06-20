@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Revision: 1.21 $ $Date: 2004-10-27 20:54:09 +0600 (Wed, 27 Oct 2004) $ -->
+<project default="jar" xmlns:j="jelly:core" xmlns:u="jelly:util" xmlns:maven="jelly:maven" xmlns:util="jelly:util" xmlns:deploy="deploy" xmlns:ant="jelly:ant">
+	<j:set var="javadoc.dir" value="target/apidocs"/>
+	<j:set var="site.javadoc.dir" value="target/docs/apidocs"/>
+	<j:set var="dist.temp.dir" value="target/dist/temp"/>
+	<!-- create javadocs as a post goal to the site and copy them to the 
+           target/docs folder -->
+	<goal name="init-dist">
+		<ant:filter token="tcpmon_version" value="${tcpmon.version}"/>
+	</goal>
+	<!-- goal to make the javadocs -->
+	<goal name="javadocs">
+		<ant:echo>+----------------------------------------------</ant:echo>
+		<ant:echo>| Generating Java docs </ant:echo>
+		<ant:echo>+----------------------------------------------</ant:echo>
+		<mkdir dir="${javadoc.dir}"/>
+		<ant:javadoc packagenames="org.apache.ws.commons.*" defaultexcludes="yes" destdir="${javadoc.dir}" author="true" breakiterator="true" version="true" use="true" windowtitle="TCPMon API">
+			<ant:arg line="-J-Dhttp.proxy.port=${maven.proxy.port} -J-Dhttp.proxy.host=${maven.proxy.host}"/>
+			<ant:sourcepath>
+				<ant:pathelement location="src"/>
+			</ant:sourcepath>
+		</ant:javadoc>
+	</goal>
+	<postGoal name="site">
+		<attainGoal name="javadocs"/>
+		<ant:copy toDir="${site.javadoc.dir}">
+			<ant:fileset dir="${javadoc.dir}"/>
+		</ant:copy>
+	</postGoal>
+	<!-- create the binary distribution -->
+	<goal name="dist-bin" prereqs="jar,javadocs,init-dist">
+		<ant:echo>+----------------------------------------------</ant:echo>
+		<ant:echo>| Creating: TCPMon Binary Distribution</ant:echo>
+		<ant:echo>+----------------------------------------------</ant:echo>
+		<property name="dist" value="${dist.temp.dir}/tcpmon-${tcpmon.version}-bin"/>
+		<mkdir dir="${dist}"/>
+		<mkdir dir="${dist}/apidocs"/>
+		<mkdir dir="${dist}/build"/>
+		<mkdir dir="${dist}/docs"/>
+		<!--we have no dependent jars-->
+		<!--copy api docs-->
+		<ant:copy toDir="${dist}/apidocs">
+			<ant:fileset dir="${javadoc.dir}"/>
+		</ant:copy>
+		<!--add the jar-->
+		<ant:copy toDir="${dist}/build">
+			<ant:fileset file="target/tcpmon-${tcpmon.version}.jar"/>
+		</ant:copy>
+		<!-- add scripts-->
+		<ant:copy toDir="${dist}/build" filtering="true">
+			<ant:fileset dir="scripts">
+				<ant:exclude name="**/.svn/**"/>
+			</ant:fileset>
+		</ant:copy>
+		<!--add  other documents in Xdocs-->
+		<ant:copy toDir="${dist}/docs">
+			<ant:fileset dir="xdocs">
+				<ant:exclude name="**/.svn/**"/>
+			</ant:fileset>
+		</ant:copy>
+		<!--copy release notes, etc-->
+		<ant:copy toDir="${dist}" filtering="true">
+			<ant:fileset file="RELEASE-NOTE.txt"/>
+			<ant:fileset file="README.txt"/>
+			<ant:fileset file="LICENSE.txt"/>
+		</ant:copy>
+		<!--create the zip-->
+		<ant:zip file="target/dist/tcpmon-${tcpmon.version}-bin.zip" basedir="${dist.temp.dir}"/>
+		<ant:delete dir="${dist}"/>
+	</goal>
+	<!-- code to create the source distribution -->
+	<goal name="dist-src" prereqs="init-dist">
+		<ant:echo>+----------------------------------------------</ant:echo>
+		<ant:echo>| Creating: TCPMon Source Distribution</ant:echo>
+		<ant:echo>+----------------------------------------------</ant:echo>
+		<ant:echo>${dist.temp.dir}</ant:echo>
+		<ant:property name="distsrc" value="${dist.temp.dir}/tcpmon-${tcpmon.version}-src"/>
+		
+		<ant:copy toDir="${distsrc}" filtering="true">
+			<ant:fileset dir=".">
+				<ant:exclude name="**/.svn/**"/>
+				<ant:include name="**/src/**"/>
+				<ant:include name="**/test/**"/>
+			</ant:fileset>
+		</ant:copy>
+		<!-- add scripts-->
+		<ant:copy toDir="${distsrc}/scripts">
+			<ant:fileset dir="scripts">
+				<ant:exclude name="**/.svn/**"/>
+			</ant:fileset>
+		</ant:copy>
+		<!-- add xdocs-->
+		<ant:copy toDir="${distsrc}/xdocs">
+			<ant:fileset dir="xdocs">
+				<ant:exclude name="**/.svn/**"/>
+			</ant:fileset>
+		</ant:copy>
+		<!-- Copy the master maven files src distro -->
+		<ant:copy toDir="${distsrc}" filtering="true">
+			<ant:fileset file="maven.xml"/>
+			<ant:fileset file="project.xml"/>
+			<ant:fileset file="project.properties"/>
+			<ant:fileset file="RELEASE-NOTE.txt"/>
+			<ant:fileset file="LICENSE.txt"/>
+		</ant:copy>
+		<!-- Zip up -->
+		<ant:zip file="target/dist/tcpmon-${tcpmon.version}-src.zip" basedir="${dist.temp.dir}"/>
+		<ant:delete dir="${distsrc}"/>
+	</goal>
+	<!-- dummy goal to create both the bin and source distributions -->
+	<goal name="release" prereqs="dist-bin,dist-src">
+	    <ant:delete dir="${dist.temp.dir}"/>
+	</goal>
+</project>

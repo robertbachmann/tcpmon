@@ -1,0 +1,11 @@
+====================================
+       TCPMon 1.0 Release Note
+====================================
+
+This is TCPMon 1.0 release of the Apache WS-Commons.
+
+TCPMon is a tool that can be used to monitor messages of TCP based protocols. It is based on swing andruns on almost all the platforms that Java supports.TCPMon has been hammered a lot and is fairly stable. Even then if you like to contribute to TCPMon any contribution in the form of coding, testing, submitting improvements to the documentation, and reporting bugs are always welcome.
+
+Thank you for your interest in TCPMon !
+
+-The TCPMon Development Team
