@@ -203,7 +203,7 @@ class AdminPane extends JPanel {
         // /////////////////////////////////////////////////////////////////
         c.anchor = GridBagConstraints.WEST;
         c.gridwidth = GridBagConstraints.REMAINDER;
-        final String proxy = TCPMon.getMessage("proxy00", "Proxy");
+        final String proxy = TCPMon.getMessage("proxy00", "HTTP Proxy");
         mainPane.add(proxyButton = new JRadioButton(proxy), c);
         btns.add(proxyButton);
         proxyButton.addActionListener(new ActionListener() {
