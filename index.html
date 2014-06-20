@@ -1,12 +1,25 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="">
-  <title>TCPMon Tutorial</title>
-</head>
-
-<body lang="en">
-<h1>TCPMon Tutorial</h1>
-
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <title>TCPMon Tutorial</title>
+  </head>
+  <body lang="en">
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/robertbachmann/tcpmon">View on GitHub</a>
+          <h1 id="project_title">TCPMon Tutorial</h1>
+          <h2 id="project_tagline"></h2>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/robertbachmann/test/zipball/master">Download this project as a .zip file</a>
+            </section>
+        </header>
+    </div>
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<!-- Content  -->
 <h2>Content</h2>
 <ul>
   <li><a href="#intro">Introduction</a></li>
@@ -22,7 +35,6 @@
       <li><a href="#slow">Slow Connection Simulation</a></li>
       <li><a href="#http_proxy">HTTP Proxy support</a></li>
     </ul>
-  <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 <a name="intro"></a>
 <h2>Introduction</h2>
@@ -99,7 +111,7 @@ server.</p>
 <a name="proxy"></a>
 <h3>As a Proxy</h3>
 
-<p>TCPMon can act as a proxy. To start the TCPMon at proxy mode, just select
+<p>TCPMon can act as an HTTP proxy. To start the TCPMon at proxy mode, just select
 the proxy option from the radio buttons. When acting as a proxy, TCPMon only
 needs the listener port to be configured.</p>
 
@@ -119,11 +131,16 @@ Web services.</p>
 
 <p>If HTTP proxy support is required then that can also be set on the admin
 screen.</p>
-<a name="conclusion"></a>
-<h2>Conclusion</h2>
 
-<p>TCPMon is a simple and easy to use tool that has many benefits when
-developing message driven applications. It is particularly useful in
-developing Web services</p>
-</body>
+<!-- /Content  -->
+      </section>
+    </div>
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">TCPMon 1.1 maintained by <a href="https://github.com/robertbachmann">Robert Bachmann</a>.</p>
+        <p>TCPMon is based on Apache's <a href="http://ws.apache.org/tcpmon/">TCPMon 1.0</a>. This tutorial is based on the TCPMon 1.0 <a href="http://ws.apache.org/tcpmon/tcpmontutorial.html">tutorial</a>.</p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a>.</p>
+      </footer>
+    </div>
+  </body>
 </html>
