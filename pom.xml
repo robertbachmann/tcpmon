@@ -24,7 +24,7 @@
 	<name>TCPMon</name>
 	<artifactId>tcpmon</artifactId>
 	<groupId>at.robertbachmann</groupId>
-	<version>1.1.0</version>
+	<version>1.2.0-SNAPSHOT</version>
 	<description>TCPMon is a utility for viewing HTTP requests and responses. It is based on Apache's TCPMon 1.0</description>
 	<url>https://github.com/robertbachmann/tcpmon/</url>
 	<properties>
