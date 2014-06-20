@@ -16,10 +16,7 @@
 
 package org.apache.ws.commons.tcpmon;
 
-import javax.swing.JFrame;
-import javax.swing.JTabbedPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 import java.util.ResourceBundle;
 
 /**
@@ -73,9 +70,10 @@ public class TCPMon extends JFrame {
      */
     public TCPMon(int listenPort, String targetHost, int targetPort, boolean embedded) {
         super(getMessage("httptracer00","TCPMon"));
+        JComponent componentToDisplay;
         notebook = new JTabbedPane();
         this.getContentPane().add(notebook);
-        new AdminPane(notebook, getMessage("admin00", "Admin"));
+        componentToDisplay = new AdminPane(notebook, getMessage("admin00", "Admin"));
         if (listenPort != 0) {
             Listener l = null;
             if (targetHost == null) {
@@ -83,7 +81,7 @@ public class TCPMon extends JFrame {
             } else {
                 l = new Listener(notebook, null, listenPort, targetHost, targetPort, false, null);
             }
-            notebook.setSelectedIndex(1);
+            componentToDisplay = l;
             l.HTTPProxyHost = System.getProperty("http.proxyHost");
             if ((l.HTTPProxyHost != null) && l.HTTPProxyHost.equals("")) {
                 l.HTTPProxyHost = null;
@@ -105,6 +103,7 @@ public class TCPMon extends JFrame {
         }
         this.pack();
         this.setSize(1000, 700);
+        notebook.setSelectedComponent(componentToDisplay);
         this.setVisible(true);
     }
 
