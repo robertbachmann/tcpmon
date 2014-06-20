@@ -1,0 +1,129 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="">
+  <title>TCPMon Tutorial</title>
+</head>
+
+<body lang="en">
+<h1>TCPMon Tutorial</h1>
+
+<h2>Content</h2>
+<ul>
+  <li><a href="#intro">Introduction</a></li>
+  <li><a href="#dependencies">Structure and Dependencies</a></li>
+  <li><a href="#patterns">Usage Patterns</a></li>
+    <ul>
+      <li><a href="#intermediate">As an Explicit Intermediate</a></li>
+      <li><a href="#sender">As a Request Sender for Web Services</a></li>
+      <li><a href="#proxy">As a Proxy</a></li>
+    </ul>
+  <li><a href="#advanced">Advanced Settings</a></li>
+    <ul>
+      <li><a href="#slow">Slow Connection Simulation</a></li>
+      <li><a href="#http_proxy">HTTP Proxy support</a></li>
+    </ul>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<a name="intro"></a>
+<h2>Introduction</h2>
+
+<p>TCPMon is a utility that allows the user to monitor the messages passed
+along in TCP based conversation. It is based on a swing UI and works on
+almost all platforms that Java supports. The aim of this simple tutorial is
+to explain how TCPMon works and also to explain some of its features.</p>
+<a name="dependencies"></a>
+<h2>Structure and Dependencies</h2>
+
+<p>TCPMon has absolutely no dependencies on third party libraries. But some
+of the UI features rely on JDK 1.4 so TCPMon needs a JRE that is 1.4 or
+higher.</p>
+<a name="patterns"></a>
+<h2>Usage Patterns</h2>
+<a name="intermediate"></a>
+<h3>As an Explicit Intermediate</h3>
+
+<p>The most common usage pattern for the TCPMon is as an
+<strong>intermediary</strong>. It is called <strong>explicit</strong> since
+the client has to point to the intermediary rather than the original endpoint
+in order to monitor the messages. The following figure explains this
+concept.</p>
+
+<p><img alt="concept" src="images/concept.jpg"/></p>
+
+<p>In order to start the TCPMon in this configuration one has to provide the
+host name and the port for the listener in the admin screen. See image
+below.</p>
+
+<p><img alt="first screen" src="images/screen1.jpg"/></p>
+
+<p>Pressing the 'add' button opens up a new tab that allows the messages to
+be seen as in the following screen</p>
+
+<p><img alt="message screen" src="images/screen2.jpg"/></p>
+
+<p>At this point the requester should point to the listener port of the
+TCPMon instead of the original endpoint. Let us understand this with an
+example:</p>
+
+<p>Say all messages passed between www.apache.org needs to be monitored.</p>
+
+<p><strong>Step 1</strong> - Add a listener with host as www.apache.org and
+port as 80. Set the listener to port 8080 which may be any unused port in the
+local machine</p>
+
+<p><img alt="the settings" src="images/screen2-closeup2.jpg"></p>
+
+<p><strong>Step 2</strong> - Point the browser to localhost:8080 instead of
+www.apache.org.</p>
+
+<p><img alt="browser address bar" src="images/screen2-browser.jpg"/></p>
+
+<p>Once the messages start flowing they can be seen in the relevant tab as
+seen below.</p>
+
+<p><img alt="Filles screen" src="images/screen3.jpg"></p>
+
+<p>The bottom controls allow the messages to be XML formatted (useful in
+debugging Web services), save and resend the messages, and also to switch the
+layout of the message windows.</p>
+
+<p><img alt="button set" src="images/screen2-closeup1.jpg"/></p>
+<a name="sender"></a>
+<h3>As a Request Sender for Web Services</h3>
+
+<p>TCPMon can also be used as a request sender for Web services. The request
+SOAP message can be pasted on the send screen and then sent directly to the
+server.</p>
+
+<p><img alt="request sender" src="images/screen4.jpg"/></p>
+<a name="proxy"></a>
+<h3>As a Proxy</h3>
+
+<p>TCPMon can act as a proxy. To start the TCPMon at proxy mode, just select
+the proxy option from the radio buttons. When acting as a proxy, TCPMon only
+needs the listener port to be configured.</p>
+
+<p><img alt="proxy" src="images/screen5.jpg"/></p>
+<a name="advanced"></a>
+<h2>Advanced Settings</h2>
+<a name="slow"></a>
+<h3>Slow Connection Simulation</h3>
+
+<p>TCPMon can simulate a slow connection, in which case the delay and the
+bytes to be dropped can be configured. This is specially useful in testing
+Web services.</p>
+
+<p><img alt="slow-connection" src="images/screen6.jpg"/></p>
+<a name="http_proxy"></a>
+<h3>HTTP Proxy support</h3>
+
+<p>If HTTP proxy support is required then that can also be set on the admin
+screen.</p>
+<a name="conclusion"></a>
+<h2>Conclusion</h2>
+
+<p>TCPMon is a simple and easy to use tool that has many benefits when
+developing message driven applications. It is particularly useful in
+developing Web services</p>
+</body>
+</html>
