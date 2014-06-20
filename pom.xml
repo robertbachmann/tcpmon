@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 /*
+ * Copyright 2014 Robert Bachmann
  * Copyright 2001-2004 The Apache Software Foundation.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,36 +17,25 @@
  * limitations under the License.
  */
  -->
-<project>
-	<name>tcpmon</name>
-	<pomVersion>3</pomVersion>
-	<!-- a unique name for this project -->
-	<name>Apache TCPMon</name>
-	<id>tcpmon</id>
-	<groupId>ws-commons</groupId>
-	<package>org.apache.ws.commons.tcpmon</package>
-	<currentVersion>${tcpmon.version}</currentVersion>
-	<!-- details about the organization that 'owns' the project -->
-	<organization>
-		<name>Apache Software Foundation</name>
-		<url>http://www.apache.org/</url>
-		<logo>http://www.apache.org/images/asf-logo.gif</logo>
-	</organization>
-	<inceptionYear>2006</inceptionYear>
-	<logo/>
-	<description>TCPMon is a utility that allows the messages to be viewed and resent. It is very much useful
-	as a debug tool. It has originally being part of Axis1 and now stands as an independent project.</description>
-	<shortDescription>TCPMon</shortDescription>
-	<!-- the project home page -->
-	<url>http://ws.apache.org/commons/tcpmon</url>
-	<issueTrackingUrl>http://issues.apache.org/jira/browse/WS-Commons</issueTrackingUrl>
-	<siteAddress>ws.apache.org/commons/tcpmon</siteAddress>
-	<siteDirectory>/www/ws.apache.org/commons/tcpmon/</siteDirectory>
-	<distributionDirectory>/www/ws.apache.org/builds/</distributionDirectory>
-	<!-- ========== -->
-	<!-- Developers -->
-	<!-- ========== -->
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<name>TCPMon</name>
+	<artifactId>tcpmon</artifactId>
+	<groupId>at.robertbachmann</groupId>
+	<version>1.1-SNAPSHOT</version>
+	<description>TCPMon is a utility for viewing HTTP requests and responses. It is based on Apache's TCPMon 1.0</description>
+	<url>https://github.com/robertbachmann/tcpmon/</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<developers>
+		<developer>
+			<name>Robert Bachmann</name>
+			<email>rb AT robertbachmann.at</email>
+		</developer>
+		<!-- Developers of TCPMon <= 1.0 -->
 		<developer>
 			<name>Davanum Srinivas</name>
 			<id>dims</id>
@@ -162,6 +152,7 @@
 		</developer>
 	</developers>
 	<contributors>
+		<!-- Contributors of TCPMon <= 1.0 -->
 		<contributor>
 			<name>Chatra Nakkawita</name>
 			<email>chatra AT WSO2.com</email>
@@ -169,12 +160,17 @@
 		</contributor>
 	</contributors>
 	<build>
-		<nagEmailAddress>commons-dev@ws.apache.org</nagEmailAddress>
 		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.4</source>
+					<target>1.4</target>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
- <!-- maven site fails if this dummy report is not there -->
-    <reports>
-		<report>maven-junit-report-plugin</report>
-    </reports>
-      
 </project>
