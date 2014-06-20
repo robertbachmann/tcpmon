@@ -6,7 +6,7 @@ See <http://robertbachmann.github.io/tcpmon/> for a tutorial.
 
 ## Change log  
 
-### TCPMon 1.1
+### TCPMon 1.1.0
 
 * Made the .jar executable
 * TCPMon now displays the *Admin* tab per default
