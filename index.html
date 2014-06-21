@@ -36,7 +36,7 @@
     <ul>
       <li><a href="#intermediate">As an Explicit Intermediate</a></li>
       <li><a href="#sender">As a Request Sender for Web Services</a></li>
-      <li><a href="#proxy">As a Proxy</a></li>
+      <li><a href="#proxy">As an HTTP Proxy</a></li>
     </ul>
   <li><a href="#advanced">Advanced Settings</a></li>
     <ul>
@@ -52,9 +52,9 @@ along in TCP based conversation. It is based on a swing UI and works on
 almost all platforms that Java supports. The aim of this simple tutorial is
 to explain how TCPMon works and also to explain some of its features.</p>
 <a name="dependencies"></a>
-<h2>Structure and Dependencies</h2>
+<h2>Dependencies</h2>
 
-<p>TCPMon needs a JRE that is 1.4 or higher.</p>
+<p>TCPMon needs a JRE version 1.4 or higher.</p>
 <a name="patterns"></a>
 <h2>Usage Patterns</h2>
 <a name="intermediate"></a>
@@ -72,12 +72,12 @@ concept:</p>
 host name and the port for the listener in the admin screen. See image
 below.</p>
 
-<p><img alt="first screen" src="images/screen1.jpg"/></p>
+<p><img alt="first screen" src="images/admin.png"/></p>
 
-<p>Pressing the 'add' button opens up a new tab that allows the messages to
-be seen as in the following screen</p>
+<p>Pressing the "Add" button opens up a new tab that allows the messages to
+be seen as in the following screen:</p>
 
-<p><img alt="message screen" src="images/screen2.jpg"/></p>
+<p><img alt="message screen" src="images/3333.png"/></p>
 
 <p>At this point the requester should point to the listener port of the
 TCPMon instead of the original endpoint. Let us understand this with an
@@ -89,23 +89,20 @@ example:</p>
 port as 80. Set the listener to port 8080 which may be any unused port in the
 local machine</p>
 
-<p><img alt="the settings" src="images/screen2-closeup2.jpg"></p>
+<p><img alt="the settings" src="images/listener.png"></p>
 
-<p><strong>Step 2</strong> - Point the browser to localhost:8080 instead of
-www.apache.org.</p>
-
-<p><img alt="browser address bar" src="images/screen2-browser.jpg"/></p>
+<p><strong>Step 2</strong> - Send a request to localhost:8080:<br/>
+<code>$ curl http://localhost/</code></p>
 
 <p>Once the messages start flowing they can be seen in the relevant tab as
-seen below.</p>
+seen below:</p>
 
-<p><img alt="Filles screen" src="images/screen3.jpg"></p>
+<p><img alt="message screen" src="images/8080.png"></p>
 
 <p>The bottom controls allow the messages to be XML formatted (useful in
 debugging Web services), save and resend the messages, and also to switch the
 layout of the message windows.</p>
 
-<p><img alt="button set" src="images/screen2-closeup1.jpg"/></p>
 <a name="sender"></a>
 <h3>As a Request Sender for Web Services</h3>
 
@@ -113,15 +110,14 @@ layout of the message windows.</p>
 SOAP message can be pasted on the send screen and then sent directly to the
 server.</p>
 
-<p><img alt="request sender" src="images/screen4.jpg"/></p>
+<p><img alt="request sender" src="images/sender.png"/></p>
 <a name="proxy"></a>
-<h3>As a Proxy</h3>
+<h3>As an HTTP proxy</h3>
 
 <p>TCPMon can act as an HTTP proxy. To start the TCPMon at proxy mode, just select
-the proxy option from the radio buttons. When acting as a proxy, TCPMon only
+the "HTTP proxy" option from the radio buttons. When acting as a proxy, TCPMon only
 needs the listener port to be configured.</p>
 
-<p><img alt="proxy" src="images/screen5.jpg"/></p>
 <a name="advanced"></a>
 <h2>Advanced Settings</h2>
 <a name="slow"></a>
@@ -131,7 +127,7 @@ needs the listener port to be configured.</p>
 bytes to be dropped can be configured. This is specially useful in testing
 Web services.</p>
 
-<p><img alt="slow-connection" src="images/screen6.jpg"/></p>
+<p><img alt="slow-connection" src="images/delay.png"/></p>
 <a name="http_proxy"></a>
 <h3>HTTP Proxy support</h3>
 
