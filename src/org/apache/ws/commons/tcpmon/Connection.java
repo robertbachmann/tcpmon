@@ -328,7 +328,7 @@ class Connection extends Thread {
 
                         // we need to update the hostname to target host
                         String newHost = "Host: " + targetHost + ":"
-                                + listenPort + "\r\n";
+                                + targetPort + "\r\n";
                         bufferedData = bufferedData.concat(newHost);
                         break;
                     }
